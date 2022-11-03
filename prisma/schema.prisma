@@ -2,6 +2,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -12,4 +16,9 @@ model Pools {
   title     String
   code      String   @unique
   createdAt DateTime @default(now())
+}
+
+model Teams {
+  id   String @id
+  name String
 }
